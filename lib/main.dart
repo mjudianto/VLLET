@@ -22,7 +22,9 @@ class MyApp extends StatelessWidget {
         ),
         body: Center(
           child: Column(
-            children: [Text("Hello World")],
+            children: [
+                Image.asset('assets/images/background1.png')
+              ]
           ),
         ),
       ),
