@@ -1,11 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'dart:async';
 
-class Welcome extends StatelessWidget {
+import 'package:vllet/pages/register.dart';
+
+class Welcome extends StatefulWidget {
+  Welcome({Key? key}) : super(key: key);
+
+  @override
+  State<Welcome> createState() => _WelcomeState();
+}
+
+class _WelcomeState extends State<Welcome> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    Timer(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => Register("James")));
+    });
     return MaterialApp(
       home: Scaffold(
         body: Container(
@@ -20,8 +38,8 @@ class Welcome extends StatelessWidget {
             child: Text(
               'VLLET',
               style: TextStyle(
-                color: Colors.white, 
-                fontSize: 50, 
+                color: Colors.white,
+                fontSize: 50,
                 fontWeight: FontWeight.w700,
               ),
             ),
