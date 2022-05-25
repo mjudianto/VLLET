@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './pages/welcome.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -14,20 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("VLLET"),
-          backgroundColor: Colors.white,
-          titleTextStyle: TextStyle(color: Colors.black, fontSize: 18),
-        ),
-        body: Center(
-          child: Column(
-            children: [
-                Image.asset('assets/images/background1.png')
-              ]
-          ),
-        ),
-      ),
+      home : Welcome("Mathew")
     );
   }
 }
