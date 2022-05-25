@@ -20,10 +20,11 @@ class _WelcomeState extends State<Welcome> {
 
   @override
   Widget build(BuildContext context) {
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(seconds: 2), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Register("James")));
+          context, MaterialPageRoute(builder: (context) => Register()));
     });
+
     return MaterialApp(
       home: Scaffold(
         body: Container(

@@ -4,9 +4,6 @@ import 'package:flutter/src/widgets/framework.dart';
 
 class Register extends StatelessWidget {
 
-  String user;
-  Register(this.user);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
