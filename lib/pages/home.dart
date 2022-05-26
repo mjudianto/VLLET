@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
         elevation: 0.5,
         actions: [
           Padding(
-              padding: EdgeInsets.only(right: 20.0),
+              padding: const EdgeInsets.only(right: 20.0),
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -32,59 +32,65 @@ class _HomeState extends State<Home> {
                     MaterialPageRoute(builder: (context) => Setting()),
                   );
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.settings,
                   size: 26.0,
                 ),
               ))
         ],
       ),
-      body: Padding(
+      body: Container(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-              "Welcome, \n" + widget.username + "!",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.w700,
+            Container(
+              padding: EdgeInsets.only(bottom: 10.0),
+              child: Text(
+                "Welcome, \n${widget.username}!",
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
-            Row(
-              children: const [
-                Expanded(
-                    child: ElevatedButton(
-                        onPressed: null,
-                        child: Text("Maret",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            )))),
-                SizedBox(
-                  width: 12.0,
-                ),
-                Expanded(
-                    child: ElevatedButton(
-                        onPressed: null,
-                        child: Text("April",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            )))),
-                SizedBox(
-                  width: 12.0,
-                ),
-                Expanded(
-                    child: ElevatedButton(
-                        onPressed: null,
-                        child: Text("May",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            )))),
-                SizedBox(
-                  width: 12.0,
-                ),
-              ],
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 5.0),
+              child: Row(
+                children: const [
+                  Expanded(
+                      child: ElevatedButton(
+                          onPressed: null,
+                          child: Text("Maret",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              )))),
+                  SizedBox(
+                    width: 12.0,
+                  ),
+                  Expanded(
+                      child: ElevatedButton(
+                          onPressed: null,
+                          child: Text("April",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              )))),
+                  SizedBox(
+                    width: 12.0,
+                  ),
+                  Expanded(
+                      child: ElevatedButton(
+                          onPressed: null,
+                          child: Text("May",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              )))),
+                  SizedBox(
+                    width: 12.0,
+                  ),
+                ],
+              ),
             ),
             Card(
                 elevation: 2.0,
@@ -110,17 +116,21 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 )),
-            Card(
-              elevation: 1.0,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    "Transanction",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  Text("22 April 2022")
-                ],
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 5.0),
+              child: Card(
+                elevation: 1.0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      "Transanction",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Text("22 April 2022")
+                  ],
+                ),
               ),
             ),
             Container(

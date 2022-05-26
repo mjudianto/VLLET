@@ -32,31 +32,37 @@ class _SettingState extends State<Setting> {
               "Setting",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Account()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20))),
-              child: const Text(
-                "Account",
-                style: TextStyle(color: Colors.black),
+            Container(
+              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Account()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20))),
+                child: const Text(
+                  "Account",
+                  style: TextStyle(color: Colors.black, fontSize: 20),
+                ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20))),
-              child: const Text(
-                "Theme",
-                style: TextStyle(color: Colors.black),
+            Container(
+              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20))),
+                child: const Text(
+                  "Theme",
+                  style: TextStyle(color: Colors.black, fontSize: 20),
+                ),
               ),
             )
           ],

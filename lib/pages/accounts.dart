@@ -49,7 +49,7 @@ class Account extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Total Balance",
                         style: TextStyle(
                             fontSize: 15, fontWeight: FontWeight.bold),
@@ -57,7 +57,7 @@ class Account extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                        children: const [
                           Text(
                             "Rp.",
                             style: TextStyle(
@@ -66,8 +66,7 @@ class Account extends StatelessWidget {
                           Text(
                             "100.000",
                             style: TextStyle(
-                              fontSize: 25,
-                            ),
+                                fontSize: 25, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -91,7 +90,7 @@ class Account extends StatelessWidget {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                    children: const [
                       Expanded(
                         child: Text(
                           "Tunai",
@@ -133,56 +132,106 @@ class Account extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                            child: Text(
-                              "OVO",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                    child: Row(
+                      children: const [
+                        Expanded(
+                          child: Text(
+                            "OVO",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                            child: Text(
-                              "ShopeePay",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            "Rp.100000",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                            child: Text(
-                              "Gopay",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                    child: Row(
+                      children: const [
+                        Expanded(
+                          child: Text(
+                            "ShopeePay",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                            child: Text(
-                              "Dana",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            "Rp.50000",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
-                        ],
-                      ),
-                    ],
-                  )
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                    child: Row(
+                      children: const [
+                        Expanded(
+                          child: Text(
+                            "GoPay",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            "Rp.50000",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                    child: Row(
+                      children: const [
+                        Expanded(
+                          child: Text(
+                            "Dana",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            "Rp.50000",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -191,8 +240,8 @@ class Account extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
                     child: Text(
                       "Cards",
                       style: TextStyle(
@@ -201,56 +250,106 @@ class Account extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                            child: Text(
-                              "BCA",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                    child: Row(
+                      children: const [
+                        Expanded(
+                          child: Text(
+                            "BCA",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                            child: Text(
-                              "BNI",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            "Rp.50000",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                            child: Text(
-                              "Mandiri",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                    child: Row(
+                      children: const [
+                        Expanded(
+                          child: Text(
+                            "BNI",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                            child: Text(
-                              "BRI",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            "Rp.50000",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
-                        ],
-                      ),
-                    ],
-                  )
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                    child: Row(
+                      children: const [
+                        Expanded(
+                          child: Text(
+                            "Mandiri",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            "Rp.50000",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                    child: Row(
+                      children: const [
+                        Expanded(
+                          child: Text(
+                            "BRI",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            "Rp.50000",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
