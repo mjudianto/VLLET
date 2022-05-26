@@ -182,10 +182,6 @@ class _AddTransactionState extends State<AddTransaction> {
                       fontWeight: FontWeight.w700,
                       color: Colors.black,
                     ),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.digitsOnly,
-                    ],
-                    keyboardType: TextInputType.number,
                   ),
                 )
               ],
@@ -219,10 +215,6 @@ class _AddTransactionState extends State<AddTransaction> {
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
                     ),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.digitsOnly,
-                    ],
-                    keyboardType: TextInputType.number,
                   ),
                 )
               ],
