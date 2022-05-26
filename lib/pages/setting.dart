@@ -14,7 +14,10 @@ class _SettingState extends State<Setting> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: mounted,
-        title: const Text("VLLET"),
+        title: const Text(
+          "VLLET",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         foregroundColor: Colors.black,
         backgroundColor: Colors.white,
         elevation: 0.5,
@@ -32,10 +35,8 @@ class _SettingState extends State<Setting> {
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Account()
-                  ),
+                  context,
+                  MaterialPageRoute(builder: (context) => Account()),
                 );
               },
               style: ElevatedButton.styleFrom(

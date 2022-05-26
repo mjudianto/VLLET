@@ -1,22 +1,24 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import 'package:flutter/material.dart';
 import 'package:vllet/pages/addtransaction.dart';
 import 'package:vllet/pages/setting.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  Home({Key? key, required this.username}) : super(key: key);
   String username;
-  Home(this.username);
+  @override
+  State<Home> createState() => _HomeState();
+}
 
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("VLLET",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-            )),
+        centerTitle: mounted,
+        title: const Text(
+          "VLLET",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         foregroundColor: Colors.black,
         backgroundColor: Colors.white,
         elevation: 0.5,
@@ -44,9 +46,9 @@ class Home extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              "Welcome, \n" + username + "!",
+              "Welcome, \n" + widget.username + "!",
               style: TextStyle(
-                fontSize: 30, 
+                fontSize: 30,
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -59,6 +61,9 @@ class Home extends StatelessWidget {
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             )))),
+                SizedBox(
+                  width: 12.0,
+                ),
                 Expanded(
                     child: ElevatedButton(
                         onPressed: null,
@@ -66,13 +71,19 @@ class Home extends StatelessWidget {
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             )))),
+                SizedBox(
+                  width: 12.0,
+                ),
                 Expanded(
                     child: ElevatedButton(
                         onPressed: null,
                         child: Text("May",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                            ))))
+                            )))),
+                SizedBox(
+                  width: 12.0,
+                ),
               ],
             ),
             Card(
