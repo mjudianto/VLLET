@@ -1,20 +1,18 @@
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter/material.dart';
 import 'package:vllet/pages/addtransaction.dart';
 import 'package:vllet/pages/setting.dart';
 
-class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+  String username;
+  Home(this.username);
 
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: mounted,
         title: const Text("VLLET",
             style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -45,9 +43,12 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text(
-              "Welcome Back,\n Thia!",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            Text(
+              "Welcome, \n" + username + "!",
+              style: TextStyle(
+                fontSize: 30, 
+                fontWeight: FontWeight.w700,
+              ),
             ),
             Row(
               children: const [
