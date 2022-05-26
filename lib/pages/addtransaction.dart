@@ -128,6 +128,7 @@ class _AddTransactionState extends State<AddTransaction> {
                     "RP",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 155, 155, 26),
                     ),
                   ),
                 ),
@@ -159,14 +160,15 @@ class _AddTransactionState extends State<AddTransaction> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 251, 225, 238),
+                    color: Color.fromARGB(255, 251, 201, 226),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   padding: EdgeInsets.all(
                     10.0,
                   ),
                   child: Icon(
-                    Icons.calendar_today,
+                    Icons.date_range,
+                    color: Color.fromARGB(255, 178, 66, 66),
                   ),
                 ),
                 SizedBox(
@@ -175,11 +177,11 @@ class _AddTransactionState extends State<AddTransaction> {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: "0",
+                      hintText: "DATE",
                       border: InputBorder.none,
                     ),
                     style: TextStyle(
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w700,
                       color: Colors.black,
                     ),
                     inputFormatters: [
@@ -190,25 +192,70 @@ class _AddTransactionState extends State<AddTransaction> {
                 )
               ],
             ),
+            SizedBox(
+              height: 15.0,
+            ),
+            Row(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 190, 235, 246),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  padding: EdgeInsets.all(
+                    10.0,
+                  ),
+                  child: Icon(
+                    Icons.event_note,
+                  ),
+                ),
+                SizedBox(
+                  width: 15.0,
+                ),
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "Note on Transaction",
+                      border: InputBorder.none,
+                    ),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                    ),
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
+                    keyboardType: TextInputType.number,
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 40.0,
+            ),
             Container(
-              height: 30.0,
               alignment: Alignment.bottomCenter,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => AddTransaction()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.black,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20))),
-                child: const Text("+",
+              child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AddTransaction()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      )),
+                  child: const Text(
+                    "CREATE TRANSACTION",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                    )),
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
