@@ -94,9 +94,9 @@ class _HomeState extends State<Home> {
             ),
             Card(
                 elevation: 2.0,
-                color: Color(0xfffff8dd),
+                color: const Color(0xfffff8dd),
                 child: Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -105,19 +105,68 @@ class _HomeState extends State<Home> {
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
-                      Text(
+                      const Text(
                         "Rp. 100.000",
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
                       ),
                       Row(
-                        children: [Text("Income"), Text("Expense")],
+                        children: [
+                          Expanded(
+                            child: Container(
+                              padding: EdgeInsets.all(10.0),
+                              child: Column(
+                                children: [
+                                  const Text(
+                                    "Income",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Row(
+                                    children: const [
+                                      Icon(
+                                        Icons.arrow_circle_up_rounded,
+                                        color: Colors.green,
+                                      ),
+                                      Text("Rp.100000"),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Column(
+                                children: [
+                                  const Text(
+                                    "Expense",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Row(
+                                    children: const [
+                                      Icon(
+                                        Icons.arrow_circle_down_rounded,
+                                        color: Colors.red,
+                                      ),
+                                      Text("Rp.100000"),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
                       )
                     ],
                   ),
                 )),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 5.0),
+              padding: const EdgeInsets.symmetric(vertical: 5.0),
               child: Card(
                 elevation: 1.0,
                 child: Column(
