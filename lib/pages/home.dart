@@ -58,6 +58,9 @@ class _HomeState extends State<Home> {
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             )))),
+                SizedBox(
+                  width: 12.0,
+                ),
                 Expanded(
                     child: ElevatedButton(
                         onPressed: null,
@@ -65,13 +68,19 @@ class _HomeState extends State<Home> {
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             )))),
+                SizedBox(
+                  width: 12.0,
+                ),
                 Expanded(
                     child: ElevatedButton(
                         onPressed: null,
                         child: Text("May",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                            ))))
+                            )))),
+                SizedBox(
+                  width: 12.0,
+                ),
               ],
             ),
             Card(
