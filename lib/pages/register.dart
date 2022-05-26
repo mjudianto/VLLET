@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
+import 'home.dart';
 
 class Register extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,16 +23,17 @@ class Register extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Expanded(
+              const Expanded(
                 child: Center(
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: Text(
                       'VLLET',
                       style: TextStyle(
-                        color: Colors.white, 
-                        fontSize: 50, 
-                        fontWeight: FontWeight.w700,),
+                        color: Colors.white,
+                        fontSize: 50,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
                 ),
@@ -45,24 +45,23 @@ class Register extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "How Should We Call You?",
                         style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      Center(
+                      const Center(
                         child: Align(
                           alignment: Alignment.bottomCenter,
-                          child : TextField(
+                          child: TextField(
                             decoration: InputDecoration(
-                              border: null,
-                              hintText: 'Your Name',
-                              hintStyle: TextStyle(
-                                fontSize: 20,
-                              )
-                            ),
+                                border: null,
+                                hintText: 'Your Name',
+                                hintStyle: TextStyle(
+                                  fontSize: 20,
+                                )),
                           ),
                         ),
                       ),
@@ -72,20 +71,26 @@ class Register extends StatelessWidget {
                           height: 50,
                           width: double.maxFinite,
                           child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.black,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                            ),
-                            onPressed: () {}, 
-                            child: Text(
-                              'Next  -->',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 25,
-                                fontWeight: FontWeight.w700,
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.black,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
                               ),
-                            )
-                          ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Home()),
+                                );
+                              },
+                              child: const Text(
+                                'Next  -->',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              )),
                         ),
                       )
                     ],

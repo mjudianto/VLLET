@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import './pages/register.dart';
 import './pages/welcome.dart';
 
 void main() {
@@ -13,11 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Vllet',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home : Welcome()
-    );
+        title: 'Vllet',
+        theme: ThemeData(
+            scaffoldBackgroundColor: Colors.white, fontFamily: 'Montserrat'),
+        home: Welcome());
   }
 }
