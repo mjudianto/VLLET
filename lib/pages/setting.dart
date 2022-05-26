@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './accounts.dart';
 
 class Setting extends StatefulWidget {
   Setting({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class _SettingState extends State<Setting> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: mounted,
-        title: const Text("Vllet"),
+        title: const Text("VLLET"),
         foregroundColor: Colors.black,
         backgroundColor: Colors.white,
         elevation: 0.5,
@@ -29,7 +30,14 @@ class _SettingState extends State<Setting> {
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Account()
+                  ),
+                );
+              },
               style: ElevatedButton.styleFrom(
                   primary: Colors.white,
                   shape: RoundedRectangleBorder(
