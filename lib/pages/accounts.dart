@@ -52,7 +52,7 @@ class Account extends StatelessWidget {
                       Text(
                         "Total Balance",
                         style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w900),
+                            fontSize: 15, fontWeight: FontWeight.bold),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -85,7 +85,7 @@ class Account extends StatelessWidget {
                       "Cash",
                       style: TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.w900,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
