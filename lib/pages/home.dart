@@ -15,7 +15,10 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: mounted,
-        title: const Text("Vllet"),
+        title: const Text("VLLET",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            )),
         foregroundColor: Colors.black,
         backgroundColor: Colors.white,
         elevation: 0.5,
@@ -49,12 +52,26 @@ class _HomeState extends State<Home> {
             Row(
               children: const [
                 Expanded(
-                    child: ElevatedButton(onPressed: null, child: Text("Mar"))),
+                    child: ElevatedButton(
+                        onPressed: null,
+                        child: Text("Maret",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            )))),
                 Expanded(
-                    child:
-                        ElevatedButton(onPressed: null, child: Text("April"))),
+                    child: ElevatedButton(
+                        onPressed: null,
+                        child: Text("April",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            )))),
                 Expanded(
-                    child: ElevatedButton(onPressed: null, child: Text("May")))
+                    child: ElevatedButton(
+                        onPressed: null,
+                        child: Text("May",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ))))
               ],
             ),
             Card(
@@ -94,18 +111,28 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AddTransaction()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                  primary: Colors.black,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20))),
-              child: const Text("+"),
+            Container(
+              alignment: Alignment.bottomCenter,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AddTransaction()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20))),
+                child: const Text(
+                  "+",
+                  style: TextStyle(
+                    color: Color(0xffffffff),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                  ),
+                ),
+              ),
             )
           ],
         ),
