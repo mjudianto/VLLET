@@ -16,9 +16,7 @@ class _AddTransactionState extends State<AddTransaction> {
         centerTitle: mounted,
         title: const Text(
           "VLLET",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
         foregroundColor: Colors.black,
         backgroundColor: Colors.white,

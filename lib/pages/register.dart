@@ -86,7 +86,7 @@ class Register extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          Home(myController.text)),
+                                          Home(username: myController.text)),
                                 );
                               },
                               child: Text(
