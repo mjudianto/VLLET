@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vllet/pages/addtransaction.dart';
+import 'package:vllet/pages/setting.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -18,6 +19,22 @@ class _HomeState extends State<Home> {
         foregroundColor: Colors.black,
         backgroundColor: Colors.white,
         elevation: 0.5,
+        actions: [
+          Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Setting()),
+                  );
+                },
+                child: Icon(
+                  Icons.settings,
+                  size: 26.0,
+                ),
+              ))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
