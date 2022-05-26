@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AddTransaction extends StatefulWidget {
   AddTransaction({Key? key}) : super(key: key);
@@ -55,7 +56,7 @@ class _AddTransactionState extends State<AddTransaction> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 247, 199, 223),
+                    color: Color.fromARGB(255, 251, 225, 238),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   padding: EdgeInsets.all(
@@ -117,12 +118,76 @@ class _AddTransactionState extends State<AddTransaction> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 247, 199, 223),
+                    color: Color.fromARGB(255, 251, 225, 238),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
-                  child: Icon(
-                    Icons.money,
+                  padding: EdgeInsets.all(
+                    10.0,
+                  ),
+                  child: Text(
+                    "RP",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
+                SizedBox(
+                  width: 15.0,
+                ),
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "0",
+                      border: InputBorder.none,
+                    ),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
+                    keyboardType: TextInputType.number,
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 15.0,
+            ),
+            Row(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 251, 225, 238),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  padding: EdgeInsets.all(
+                    10.0,
+                  ),
+                  child: Icon(
+                    Icons.calendar_today,
+                  ),
+                ),
+                SizedBox(
+                  width: 15.0,
+                ),
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "0",
+                      border: InputBorder.none,
+                    ),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                    ],
+                    keyboardType: TextInputType.number,
+                  ),
+                )
               ],
             ),
             Container(
