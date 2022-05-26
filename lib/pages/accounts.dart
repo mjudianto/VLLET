@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './addaccount.dart';
+
 class Account extends StatelessWidget {
   const Account({Key? key}) : super(key: key);
 
@@ -12,8 +14,9 @@ class Account extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          title: 
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("VLLET")
               ],
@@ -21,6 +24,23 @@ class Account extends StatelessWidget {
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,
           elevation: 0.5,
+          actions: [
+            Padding(
+              padding: EdgeInsets.only(right: 10.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AddAccount()),
+                  );
+                },
+                child: Icon(
+                  Icons.add,
+                  size: 26.0,
+                ),
+              )
+            )
+          ],
         ),
         body: Padding(
           padding: const EdgeInsets.fromLTRB(20,20,20,20),
