@@ -13,7 +13,10 @@ class _AddTransactionState extends State<AddTransaction> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: mounted,
-        title: const Text("Vllet"),
+        title: const Text(
+          "VLLET",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         foregroundColor: Colors.black,
         backgroundColor: Colors.white,
         elevation: 0.5,
