@@ -42,7 +42,7 @@ class Account extends StatelessWidget {
                     if (value == 'add') {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => AddAccount()),
+                        MaterialPageRoute(builder: (context) => MyWidget()),
                       );
                     } else {
                       Navigator.push(

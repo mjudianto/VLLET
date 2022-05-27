@@ -3,8 +3,16 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class AddAccount extends StatelessWidget {
-  var items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
+class AddAccount extends StatefulWidget {
+  const AddAccount({Key? key}) : super(key: key);
+
+  @override
+  State<AddAccount> createState() => _AddAccount();
+}
+
+class _AddAccount extends State<AddAccount> {
+  var items = ['item1', 'item2'];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
