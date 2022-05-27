@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './addaccount.dart';
+import './deleteaccount.dart';
 
 class Account extends StatelessWidget {
   const Account({Key? key}) : super(key: key);
@@ -35,6 +36,7 @@ class Account extends StatelessWidget {
                       child: Text('add'),
                     ),
                     PopupMenuItem(
+                      value: 'remove',
                       child: Text('remove'),
                     ),
                   ],
@@ -42,12 +44,13 @@ class Account extends StatelessWidget {
                     if (value == 'add') {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => MyWidget()),
+                        MaterialPageRoute(builder: (context) => AddAccount()),
                       );
                     } else {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Account()),
+                        MaterialPageRoute(
+                            builder: (context) => DeleteAccount()),
                       );
                     }
                   },
