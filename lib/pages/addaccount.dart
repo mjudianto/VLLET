@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AddAccount extends StatelessWidget {
+  var items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
+  String? newValue;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,13 +35,18 @@ class AddAccount extends StatelessWidget {
               SizedBox(
                 height: 10.0,
               ),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: "Account Group",
-                  border: InputBorder.none,
-                ),
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
+              Container(
+                child: DropdownButton(
+                  hint: Text("Account Group"),
+                  icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
+                  isExpanded: true,
+                  items: items.map((String items) {
+                    return DropdownMenuItem<String>(
+                      value: items,
+                      child: Text(items),
+                    );
+                  }).toList(),
+                  onChanged: (_) {},
                 ),
               ),
               SizedBox(
@@ -109,8 +117,12 @@ class AddAccount extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
                       ),
+                      inputFormatters: [
+                        FilteringTextInputFormatter.digitsOnly,
+                      ],
+                      keyboardType: TextInputType.number,
                     ),
-                  )
+                  ),
                 ],
               ),
               SizedBox(
