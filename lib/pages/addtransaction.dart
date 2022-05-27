@@ -9,6 +9,7 @@ class AddTransaction extends StatefulWidget {
 }
 
 class _AddTransactionState extends State<AddTransaction> {
+  String choise = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +77,13 @@ class _AddTransactionState extends State<AddTransaction> {
                       color: Colors.white,
                     ),
                   ),
-                  selected: true,
+                  selectedColor: Color.fromARGB(255, 141, 63, 184),
+                  selected: (choise == 'Income') ? true : false,
+                  onSelected: (bool value) {
+                    setState(() {
+                      choise = 'Income';
+                    });
+                  },
                 ),
                 SizedBox(
                   width: 15.0,
@@ -90,13 +97,17 @@ class _AddTransactionState extends State<AddTransaction> {
                     ),
                   ),
                   selectedColor: Color.fromARGB(255, 141, 63, 184),
-                  selected: true,
+                  selected: (choise == 'Expense') ? true : false,
+                  onSelected: (bool value) {
+                    setState(() {
+                      choise = 'Expense';
+                    });
+                  },
                 ),
                 SizedBox(
                   width: 15.0,
                 ),
                 ChoiceChip(
-                  backgroundColor: Colors.black,
                   label: Text(
                     "Transfer",
                     style: TextStyle(
@@ -104,7 +115,13 @@ class _AddTransactionState extends State<AddTransaction> {
                       color: Colors.white,
                     ),
                   ),
-                  selected: true,
+                  selectedColor: Color.fromARGB(255, 141, 63, 184),
+                  selected: (choise == 'Transfer') ? true : false,
+                  onSelected: (bool value) {
+                    setState(() {
+                      choise = 'Transfer';
+                    });
+                  },
                 ),
               ],
             ),
