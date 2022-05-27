@@ -123,14 +123,18 @@ class _HomeState extends State<Home> {
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Row(
-                                    children: const [
-                                      Icon(
-                                        Icons.arrow_circle_up_rounded,
-                                        color: Colors.green,
-                                      ),
-                                      Text("Rp.100000"),
-                                    ],
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: const [
+                                        Icon(
+                                          Icons.arrow_circle_up_rounded,
+                                          color: Colors.green,
+                                        ),
+                                        Text("Rp.100000"),
+                                      ],
+                                    ),
                                   )
                                 ],
                               ),
@@ -147,14 +151,18 @@ class _HomeState extends State<Home> {
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  Row(
-                                    children: const [
-                                      Icon(
-                                        Icons.arrow_circle_down_rounded,
-                                        color: Colors.red,
-                                      ),
-                                      Text("Rp.100000"),
-                                    ],
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: const [
+                                        Icon(
+                                          Icons.arrow_circle_down_rounded,
+                                          color: Colors.red,
+                                        ),
+                                        Text("Rp.100000"),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),

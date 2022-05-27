@@ -41,7 +41,6 @@ class _AddTransactionState extends State<AddTransaction> {
             TextField(
               decoration: InputDecoration(
                 hintText: "Transaction Name",
-                border: InputBorder.none,
               ),
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -137,7 +136,6 @@ class _AddTransactionState extends State<AddTransaction> {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: "0",
-                      border: InputBorder.none,
                     ),
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
@@ -176,7 +174,6 @@ class _AddTransactionState extends State<AddTransaction> {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: "DATE",
-                      border: InputBorder.none,
                     ),
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
@@ -210,7 +207,6 @@ class _AddTransactionState extends State<AddTransaction> {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: "Note on Transaction",
-                      border: InputBorder.none,
                     ),
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
