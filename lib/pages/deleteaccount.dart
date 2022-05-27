@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -10,6 +12,93 @@ class DeleteAccount extends StatefulWidget {
 }
 
 class _DeleteAccountState extends State<DeleteAccount> {
+  Future<Void> showInformationDialog(BuildContext context) async {
+    return await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          content: Container(
+            height: 100.0,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "WARNING!",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "This will delete this account.",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "This action is irreversible.",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "Do you want to continue?",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    style: ElevatedButton.styleFrom(
+                        primary: Color.fromARGB(255, 101, 246, 106),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        )),
+                    child: const Text(
+                      "YES",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 211, 84, 84),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      )),
+                  child: const Text(
+                    "NO",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -60,7 +149,9 @@ class _DeleteAccountState extends State<DeleteAccount> {
                     IconButton(
                       icon: Icon(Icons.remove_circle_outline),
                       color: Colors.red,
-                      onPressed: () => debugPrint('iconbutton ditekan'),
+                      onPressed: () async {
+                        await showInformationDialog(context);
+                      },
                     ),
                     Text(
                       "Tunai",
@@ -87,7 +178,9 @@ class _DeleteAccountState extends State<DeleteAccount> {
                   IconButton(
                     icon: Icon(Icons.remove_circle_outline),
                     color: Colors.red,
-                    onPressed: () => debugPrint('iconbutton ditekan'),
+                    onPressed: () async {
+                      await showInformationDialog(context);
+                    },
                   ),
                   Text(
                     "OVO",
@@ -103,10 +196,12 @@ class _DeleteAccountState extends State<DeleteAccount> {
                   IconButton(
                     icon: Icon(Icons.remove_circle_outline),
                     color: Colors.red,
-                    onPressed: () => debugPrint('iconbutton ditekan'),
+                    onPressed: () async {
+                      await showInformationDialog(context);
+                    },
                   ),
                   Text(
-                    "OVO",
+                    "Shopeepay",
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 14,
@@ -129,7 +224,9 @@ class _DeleteAccountState extends State<DeleteAccount> {
                   IconButton(
                     icon: Icon(Icons.remove_circle_outline),
                     color: Colors.red,
-                    onPressed: () => debugPrint('iconbutton ditekan'),
+                    onPressed: () async {
+                      await showInformationDialog(context);
+                    },
                   ),
                   Text(
                     "BCA",
@@ -145,7 +242,9 @@ class _DeleteAccountState extends State<DeleteAccount> {
                   IconButton(
                     icon: Icon(Icons.remove_circle_outline),
                     color: Colors.red,
-                    onPressed: () => debugPrint('iconbutton ditekan'),
+                    onPressed: () async {
+                      await showInformationDialog(context);
+                    },
                   ),
                   Text(
                     "BNI",
