@@ -32,16 +32,16 @@ class Account extends StatelessWidget {
                   ),
                   itemBuilder: (context) => [
                     PopupMenuItem(
-                      value: 'add',
-                      child: Text('add'),
+                      value: 'Add',
+                      child: Text('Add'),
                     ),
                     PopupMenuItem(
-                      value: 'remove',
-                      child: Text('remove'),
+                      value: 'Remove',
+                      child: Text('Remove'),
                     ),
                   ],
                   onSelected: (value) {
-                    if (value == 'add') {
+                    if (value == 'Add') {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => AddAccount()),
