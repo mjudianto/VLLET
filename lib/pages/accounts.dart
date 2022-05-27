@@ -122,7 +122,7 @@ class Account extends StatelessWidget {
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
+                            children: <Widget>[
                               Text("Rp."),
                               Text("0"),
                             ],
