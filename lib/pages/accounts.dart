@@ -98,7 +98,7 @@ class Account extends StatelessWidget {
                       ),
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
                           padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
@@ -110,6 +110,24 @@ class Account extends StatelessWidget {
                             ),
                           ),
                         ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(60, 2, 60, 2),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.black,
+                            ),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(5.0),
+                            )
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("Rp."),
+                              Text("0"),
+                            ],
+                          )
+                        )
                       ],
                     )
                   ],
@@ -130,11 +148,11 @@ class Account extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
                               padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
@@ -146,6 +164,29 @@ class Account extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(60, 2, 60, 2),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5.0),
+                                )
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text("Rp."),
+                                  Text("0")
+                                ],
+                              )
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
                             Padding(
                               padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                               child: Text(
@@ -156,6 +197,29 @@ class Account extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(60, 2, 60, 2),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5.0),
+                                )
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text("Rp."),
+                                  Text("0")
+                                ],
+                              )
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
                             Padding(
                               padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                               child: Text(
@@ -166,6 +230,29 @@ class Account extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(60, 2, 60, 2),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5.0),
+                                )
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text("Rp."),
+                                  Text("0")
+                                ],
+                              )
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
                             Padding(
                               padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                               child: Text(
@@ -176,10 +263,28 @@ class Account extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(60, 2, 60, 2),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5.0),
+                                )
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text("Rp."),
+                                  Text("0")
+                                ],
+                              )
+                            )
                           ],
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -198,11 +303,11 @@ class Account extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
                               padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
@@ -214,6 +319,29 @@ class Account extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(60, 2, 60, 2),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5.0),
+                                )
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text("Rp."),
+                                  Text("0")
+                                ],
+                              )
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
                             Padding(
                               padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                               child: Text(
@@ -224,6 +352,29 @@ class Account extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(60, 2, 60, 2),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5.0),
+                                )
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text("Rp."),
+                                  Text("0")
+                                ],
+                              )
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
                             Padding(
                               padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                               child: Text(
@@ -234,6 +385,29 @@ class Account extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(60, 2, 60, 2),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5.0),
+                                )
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text("Rp."),
+                                  Text("0")
+                                ],
+                              )
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
                             Padding(
                               padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
                               child: Text(
@@ -244,10 +418,28 @@ class Account extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            Container(
+                              padding: EdgeInsets.fromLTRB(60, 2, 60, 2),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5.0),
+                                )
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text("Rp."),
+                                  Text("0")
+                                ],
+                              )
+                            )
                           ],
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
