@@ -27,19 +27,41 @@ class Account extends StatelessWidget {
           actions: [
             Padding(
               padding: EdgeInsets.only(right: 10.0),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => AddAccount()),
-                  );
-                },
+              child: PopupMenuButton(
                 child: Icon(
-                  Icons.add,
+                  Icons.more_vert,
                   size: 26.0,
                 ),
-              )
-            )
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    value: 'add',
+                    child: Text('add'),
+                  ),
+                  PopupMenuItem(
+                    child: Text('remove'),
+                  ),
+                ],
+                onSelected: (value){
+                  if (value == 'add'){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                          AddAccount()
+                      ),
+                    );
+                  } else {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                          Account()
+                      ),
+                    );
+                  }
+                },
+              ),
+            ),
           ],
         ),
         body: Padding(
