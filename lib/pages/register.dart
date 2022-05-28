@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
+import 'package:vllet/controllers/db_helper.dart';
 import './home.dart';
 
-class Register extends StatelessWidget {
+class Register extends StatefulWidget {
+  Register({Key? key}) : super(key: key);
+
+  @override
+  State<Register> createState() => _RegisterState();
+}
+
+class _RegisterState extends State<Register> {
   final myController = TextEditingController();
+  DbHelper dbHelper = DbHelper();
+
+  String name = "";
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +39,7 @@ class Register extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(
+                const Expanded(
                   child: Center(
                     child: Align(
                       alignment: Alignment.bottomCenter,
@@ -53,7 +61,7 @@ class Register extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           "How Should We Call You?",
                           style: TextStyle(
                             fontSize: 25,
@@ -63,14 +71,17 @@ class Register extends StatelessWidget {
                         Center(
                           child: Align(
                             alignment: Alignment.bottomCenter,
-                            child: TextField(
+                            child: TextFormField(
                               controller: myController,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                   border: null,
                                   hintText: 'Your Name',
                                   hintStyle: TextStyle(
                                     fontSize: 20,
                                   )),
+                              onChanged: (val) {
+                                name = val;
+                              },
                             ),
                           ),
                         ),
@@ -85,15 +96,38 @@ class Register extends StatelessWidget {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20)),
                                 ),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            Home(username: myController.text)),
-                                  );
+                                onPressed: () async {
+                                  if (name.isEmpty) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        action: SnackBarAction(
+                                          label: "OK",
+                                          onPressed: () {
+                                            ScaffoldMessenger.of(context)
+                                                .hideCurrentSnackBar();
+                                          },
+                                        ),
+                                        backgroundColor: Colors.white,
+                                        content: Text(
+                                          "Please Enter a name",
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 18.0,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  } else {
+                                    DbHelper dbHelper = DbHelper();
+                                    await dbHelper.addName(name);
+                                    Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute(
+                                        builder: (context) => Home(),
+                                      ),
+                                    );
+                                  }
                                 },
-                                child: Text(
+                                child: const Text(
                                   'Next  -->',
                                   style: TextStyle(
                                     color: Colors.white,

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:vllet/controllers/db_helper.dart';
 import 'dart:async';
 
 import 'package:vllet/pages/register.dart';
+
+import 'home.dart';
 
 class Welcome extends StatefulWidget {
   Welcome({Key? key}) : super(key: key);
@@ -11,17 +14,33 @@ class Welcome extends StatefulWidget {
 }
 
 class _WelcomeState extends State<Welcome> {
+  DbHelper dbHelper = DbHelper();
+
   @override
   void initState() {
     super.initState();
+    getName();
+  }
+
+  Future getName() async {
+    String? name = await dbHelper.getName();
+    name = null;
+    if (name != null) {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => Home(),
+      ));
+    } else {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => Register(),
+        ),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    Timer(Duration(seconds: 2), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Register()));
-    });
+    Timer(const Duration(seconds: 2), () {});
 
     return MaterialApp(
       home: Scaffold(
@@ -33,7 +52,7 @@ class _WelcomeState extends State<Welcome> {
                 image: AssetImage("assets/images/background1.png"),
                 fit: BoxFit.cover),
           ),
-          child: Center(
+          child: const Center(
             child: Text(
               'VLLET',
               style: TextStyle(

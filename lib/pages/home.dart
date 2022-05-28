@@ -1,15 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:vllet/controllers/db_helper.dart';
 import 'package:vllet/pages/addtransaction.dart';
 import 'package:vllet/pages/setting.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key, required this.username}) : super(key: key);
-  String username;
+  Home({Key? key}) : super(key: key);
+
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+  late Box box;
+  late SharedPreferences preferences;
+  DbHelper dbHelper = DbHelper();
+
+  @override
+  void initState() {
+    super.initState();
+    getPreference();
+    box = Hive.box('money');
+  }
+
+  getPreference() async {
+    preferences = await SharedPreferences.getInstance();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +66,7 @@ class _HomeState extends State<Home> {
             Container(
               padding: EdgeInsets.only(bottom: 10.0),
               child: Text(
-                "Welcome, \n${widget.username}!",
+                "Welcome \n ${preferences.getString('name')}!",
                 style: const TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w700,
@@ -124,9 +142,11 @@ class _HomeState extends State<Home> {
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 10, 0, 0),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: const [
                                         Icon(
                                           Icons.arrow_circle_up_rounded,
@@ -152,9 +172,11 @@ class _HomeState extends State<Home> {
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 10, 0, 0),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: const [
                                         Icon(
                                           Icons.arrow_circle_down_rounded,

@@ -3,6 +3,8 @@ import './pages/welcome.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox('money');
   runApp(const MyApp());
 }
 
