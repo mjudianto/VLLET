@@ -124,9 +124,11 @@ class _HomeState extends State<Home> {
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 10, 0, 0),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: const [
                                         Icon(
                                           Icons.arrow_circle_up_rounded,
@@ -152,9 +154,11 @@ class _HomeState extends State<Home> {
                                         fontWeight: FontWeight.bold),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 10, 0, 0),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: const [
                                         Icon(
                                           Icons.arrow_circle_down_rounded,
@@ -180,12 +184,15 @@ class _HomeState extends State<Home> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
-                    Text(
-                      "Transanction",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        "Transanction",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
                     ),
-                    Text("22 April 2022")
+                    Text("22 April 2022"),
                   ],
                 ),
               ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:vllet/pages/edittransaction.dart';
 
 import './home.dart';
 
@@ -89,8 +90,10 @@ class Register extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            Home(username: myController.text)),
+                                      builder: (context) =>
+                                          Home(username: myController.text),
+                                      //EditTransaction(),
+                                    ),
                                   );
                                 },
                                 child: Text(
