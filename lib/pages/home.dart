@@ -73,6 +73,81 @@ class _HomeState extends State<Home> {
     }
   }
 
+  Future<void> showInformationDialog(BuildContext context) async {
+    return await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          content: Container(
+            height: 70.0,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "CONFIRMATION!",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "Do you want to edit this transaction?",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    style: ElevatedButton.styleFrom(
+                        primary: Color.fromARGB(255, 101, 246, 106),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        )),
+                    child: const Text(
+                      "YES",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 211, 84, 84),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      )),
+                  child: const Text(
+                    "NO",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   getTotalBalance(List<TransactionModel> entireData) {
     totalBalance = 0;
     totalIncome = 0;
@@ -311,7 +386,8 @@ class _HomeState extends State<Home> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => AddTransaction(name: (widget.name))),
+                                builder: (context) =>
+                                    AddTransaction(name: (widget.name))),
                           );
                         },
                         style: ElevatedButton.styleFrom(
@@ -341,7 +417,9 @@ class _HomeState extends State<Home> {
   Widget expenseTile(int value, String note, DateTime date, int index) {
     return InkWell(
       splashColor: Colors.red,
-      onTap: () {},
+      onTap: () async {
+        await showInformationDialog(context);
+      },
       child: Container(
         padding: const EdgeInsets.all(18.0),
         margin: const EdgeInsets.all(8.0),
@@ -363,7 +441,7 @@ class _HomeState extends State<Home> {
                     Row(
                       children: [
                         Icon(
-                          Icons.arrow_circle_up_outlined,
+                          Icons.arrow_circle_down_outlined,
                           size: 28.0,
                           color: Colors.red[700],
                         ),
@@ -426,7 +504,9 @@ class _HomeState extends State<Home> {
   Widget incomeTile(int value, String note, DateTime date, int index) {
     return InkWell(
       splashColor: const Color.fromARGB(255, 138, 231, 141),
-      onTap: () {},
+      onTap: () async {
+        await showInformationDialog(context);
+      },
       child: Container(
         padding: const EdgeInsets.all(18.0),
         margin: const EdgeInsets.all(8.0),
@@ -445,7 +525,7 @@ class _HomeState extends State<Home> {
                 Row(
                   children: [
                     Icon(
-                      Icons.arrow_circle_down_outlined,
+                      Icons.arrow_circle_up_outlined,
                       size: 28.0,
                       color: Colors.green[700],
                     ),

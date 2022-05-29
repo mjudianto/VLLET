@@ -55,7 +55,9 @@ class _AddAccount extends State<AddAccount> {
                       child: Text(items),
                     );
                   }).toList(),
-                  onChanged: (_) {},
+                  onChanged: (value) {
+                    setState(() => items);
+                  },
                 ),
               ),
               SizedBox(
