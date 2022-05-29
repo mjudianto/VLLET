@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class EditTransaction extends StatefulWidget {
-  EditTransaction({Key? key,}) : super(key: key);
+  EditTransaction({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<EditTransaction> createState() => _EditTransactionState();
