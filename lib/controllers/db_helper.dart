@@ -13,8 +13,15 @@ class DbHelper {
     box = Hive.box('money');
   }
 
-  void addData(String tname, String type, int amount, DateTime date, String note) async {
-    var value = {'tname':tname, 'type': type, 'amount': amount, 'date': date, 'note': note};
+  void addData(
+      String tname, String type, int amount, DateTime date, String note) async {
+    var value = {
+      'tname': tname,
+      'type': type,
+      'amount': amount,
+      'date': date,
+      'note': note
+    };
     box.add(value);
   }
 
@@ -31,6 +38,7 @@ class DbHelper {
   addName(String name) async {
     preferences = await SharedPreferences.getInstance();
     preferences.setString('name', name);
+    print("sukses"+name);
   }
 
   getName() async {

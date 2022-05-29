@@ -108,7 +108,7 @@ class _RegisterState extends State<Register> {
                                           },
                                         ),
                                         backgroundColor: Colors.white,
-                                        content: Text(
+                                        content: const Text(
                                           "Please Enter a name",
                                           style: TextStyle(
                                             color: Colors.black,
@@ -118,11 +118,10 @@ class _RegisterState extends State<Register> {
                                       ),
                                     );
                                   } else {
-                                    DbHelper dbHelper = DbHelper();
                                     await dbHelper.addName(name);
                                     Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
-                                        builder: (context) => Home(),
+                                        builder: (context) => Home(name: name,),
                                       ),
                                     );
                                   }

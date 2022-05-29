@@ -24,10 +24,11 @@ class _WelcomeState extends State<Welcome> {
 
   Future getName() async {
     String? name = await dbHelper.getName();
-    name = null;
+    print(name);
+
     if (name != null) {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => Home(),
+        builder: (context) => Home(name: name),
       ));
     } else {
       Navigator.of(context).pushReplacement(

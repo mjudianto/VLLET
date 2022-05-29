@@ -6,26 +6,25 @@ import 'package:vllet/pages/addtransaction.dart';
 import 'package:vllet/pages/setting.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
-
+  Home({Key? key, required this.name}) : super(key: key);
+  final String name;
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
   late Box box;
-  late SharedPreferences preferences;
   DbHelper dbHelper = DbHelper();
-
+  SharedPreferences? prefs;
   @override
   void initState() {
-    super.initState();
     getPreference();
+    super.initState();
     box = Hive.box('money');
   }
 
   getPreference() async {
-    preferences = await SharedPreferences.getInstance();
+    prefs = await SharedPreferences.getInstance();
   }
 
   @override
@@ -66,7 +65,7 @@ class _HomeState extends State<Home> {
             Container(
               padding: EdgeInsets.only(bottom: 10.0),
               child: Text(
-                "Welcome \n ${preferences.getString('name')}!",
+                "Welcome \n${widget.name}!",
                 style: const TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w700,
@@ -202,12 +201,15 @@ class _HomeState extends State<Home> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
-                    Text(
-                      "Transanction",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        "Transanction",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
                     ),
-                    Text("22 April 2022")
+                    Text("22 April 2022"),
                   ],
                 ),
               ),
