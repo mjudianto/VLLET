@@ -2,9 +2,11 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:vllet/pages/accounts.dart';
 
 class AddAccount extends StatefulWidget {
-  const AddAccount({Key? key}) : super(key: key);
+  AddAccount({Key? key, required this.accountgroup}) : super(key: key);
+  String accountgroup;
 
   @override
   State<AddAccount> createState() => _AddAccount();
@@ -34,7 +36,7 @@ class _AddAccount extends State<AddAccount> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Text(
+              Text(
                 "Add \nAccount",
                 style: TextStyle(
                   fontSize: 40,
@@ -46,7 +48,7 @@ class _AddAccount extends State<AddAccount> {
               ),
               Container(
                 child: DropdownButton(
-                  hint: Text("Account Group"),
+                  hint: Text("${widget.accountgroup}"),
                   icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
                   isExpanded: true,
                   items: items.map((String items) {
@@ -56,7 +58,9 @@ class _AddAccount extends State<AddAccount> {
                     );
                   }).toList(),
                   onChanged: (value) {
-                    setState(() => items);
+                    setState(() {
+                      widget.accountgroup = value.toString();
+                    });
                   },
                 ),
               ),
@@ -147,7 +151,7 @@ class _AddAccount extends State<AddAccount> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => AddAccount()),
+                        MaterialPageRoute(builder: (context) => Account()),
                       );
                     },
                     style: ElevatedButton.styleFrom(

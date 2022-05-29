@@ -44,6 +44,7 @@ class _AddTransactionState extends State<AddTransaction> {
   }
 
   String choice = '';
+  bool transfer = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,6 +124,7 @@ class _AddTransactionState extends State<AddTransaction> {
                     onSelected: (bool value) {
                       setState(() {
                         choice = 'Income';
+                        transfer = false;
                       });
                     },
                   ),
@@ -142,6 +144,7 @@ class _AddTransactionState extends State<AddTransaction> {
                     onSelected: (bool value) {
                       setState(() {
                         choice = 'Expense';
+                        transfer = false;
                       });
                     },
                   ),
@@ -161,6 +164,7 @@ class _AddTransactionState extends State<AddTransaction> {
                     onSelected: (bool value) {
                       setState(() {
                         choice = 'Transfer';
+                        transfer = true;
                       });
                     },
                   ),
@@ -168,6 +172,25 @@ class _AddTransactionState extends State<AddTransaction> {
               ),
               const SizedBox(
                 height: 15.0,
+              ),
+              Column(
+                children: [
+                  (transfer)?
+                  Column(
+                    children: [
+                      Row( // EDIT FROM SAMA TO DIDALEWM ROW INI
+                      // KALO BUTUH PANDUAN LIAT DARI DROP DOWN LIST ADD ACCOUNT
+                        children: [
+                          Text("test"),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 15.0,
+                      ),
+                    ],
+                  )
+                  : Text(""),
+                ],
               ),
               Row(
                 children: [

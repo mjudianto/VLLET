@@ -205,7 +205,7 @@ class _HomeState extends State<Home> {
                     Container(
                       padding: const EdgeInsets.only(bottom: 10.0),
                       child: Text(
-                        "Welcome \n ${widget.name}!",
+                        "Welcome \n${widget.name}!",
                         style: const TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.w700,
@@ -338,7 +338,7 @@ class _HomeState extends State<Home> {
                           ),
                         )),
                     const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 5.0),
+                      padding: EdgeInsets.fromLTRB(5, 20, 0, 5),
                       child: Text("Recent Transactions",
                           style: TextStyle(
                               fontSize: 20.0, fontWeight: FontWeight.bold)),
@@ -421,8 +421,8 @@ class _HomeState extends State<Home> {
         await showInformationDialog(context);
       },
       child: Container(
-        padding: const EdgeInsets.all(18.0),
-        margin: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+        margin: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 255, 135, 135),
           borderRadius: BorderRadius.circular(
@@ -508,8 +508,8 @@ class _HomeState extends State<Home> {
         await showInformationDialog(context);
       },
       child: Container(
-        padding: const EdgeInsets.all(18.0),
-        margin: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+        margin: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 184, 236, 126),
           borderRadius: BorderRadius.circular(
