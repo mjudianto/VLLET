@@ -80,21 +80,22 @@ class _HomeState extends State<Home> {
       builder: (context) {
         return AlertDialog(
           content: Container(
-            height: 70.0,
+            height: 100.0,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: const [
                 Text(
-                  "CONFIRMATION!",
+                  "CONFIRMATION!\n",
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 24,
                   ),
                 ),
                 Text(
                   "Do you want to edit this transaction?",
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.normal,
                   ),
                 ),
               ],
@@ -105,7 +106,7 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -115,12 +116,13 @@ class _HomeState extends State<Home> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 101, 246, 106),
+                        minimumSize: Size(111, 45),
+                        primary: Color.fromRGBO(37, 187, 51, 1),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(20),
                         )),
                     child: const Text(
-                      "YES",
+                      "Yes",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
@@ -133,12 +135,13 @@ class _HomeState extends State<Home> {
                     Navigator.of(context).pop();
                   },
                   style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 211, 84, 84),
+                      minimumSize: Size(111, 45),
+                      primary: Color.fromRGBO(187, 37, 37, 1),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(20),
                       )),
                   child: const Text(
-                    "NO",
+                    "No",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,

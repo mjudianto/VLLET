@@ -74,7 +74,7 @@ class _AddTransactionState extends State<AddTransaction> {
               const Text(
                 "Add \nTransaction",
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 36,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -86,7 +86,8 @@ class _AddTransactionState extends State<AddTransaction> {
                   hintText: "Transaction Name",
                 ),
                 style: const TextStyle(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20,
                 ),
                 onChanged: (val) {
                   tname = val;
@@ -103,7 +104,7 @@ class _AddTransactionState extends State<AddTransaction> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     padding: const EdgeInsets.all(
-                      5.0,
+                      7.0,
                     ),
                     child: const Icon(
                       Icons.money_rounded,
@@ -173,53 +174,55 @@ class _AddTransactionState extends State<AddTransaction> {
                   ),
                 ],
               ),
-                  (transfer)
-                      ? Column(
+              (transfer)
+                  ? Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  DropdownButton(
-                    hint: Text(accountgroup1),
-                    icon: const Icon(Icons.arrow_drop_down,
-                        color: Color.fromARGB(255, 200, 200, 200)),
-                    items: items.map((String items) {
-                      return DropdownMenuItem<String>(
-                        value: items,
-                        child: Text(items),
-                      );
-                    }).toList(),
-                    onChanged: (value) {
-                      accountgroup1 = value.toString();
-                    },
-                    ),
-                    Icon(Icons.arrow_left_outlined, color: Colors.black),
-                    Icon(Icons.arrow_right_outlined, color: Colors.black),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: DropdownButton(
-                        hint: Text(accountgroup2),
-                        icon: const Icon(Icons.arrow_drop_down,
-                            color: Color.fromARGB(255, 200, 200, 200)),
-                        items: items.map((String items) {
-                          return DropdownMenuItem<String>(
-                            value: items,
-                            child: Text(items),
-                          );
-                        }).toList(),
-                        onChanged: (value) {
-                          accountgroup2 = value.toString();
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                height: 15.0,
-                ),
-              ],
-              )
-              : Text(""),
+                            DropdownButton(
+                              hint: Text(accountgroup1),
+                              icon: const Icon(Icons.arrow_drop_down,
+                                  color: Color.fromARGB(255, 200, 200, 200)),
+                              items: items.map((String items) {
+                                return DropdownMenuItem<String>(
+                                  value: items,
+                                  child: Text(items),
+                                );
+                              }).toList(),
+                              onChanged: (value) {
+                                accountgroup1 = value.toString();
+                              },
+                            ),
+                            Icon(Icons.arrow_left_outlined,
+                                color: Colors.black),
+                            Icon(Icons.arrow_right_outlined,
+                                color: Colors.black),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: DropdownButton(
+                                hint: Text(accountgroup2),
+                                icon: const Icon(Icons.arrow_drop_down,
+                                    color: Color.fromARGB(255, 200, 200, 200)),
+                                items: items.map((String items) {
+                                  return DropdownMenuItem<String>(
+                                    value: items,
+                                    child: Text(items),
+                                  );
+                                }).toList(),
+                                onChanged: (value) {
+                                  accountgroup2 = value.toString();
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 15.0,
+                        ),
+                      ],
+                    )
+                  : Text(""),
               Row(
                 children: [
                   Container(
@@ -228,7 +231,7 @@ class _AddTransactionState extends State<AddTransaction> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     padding: const EdgeInsets.all(
-                      10.0,
+                      12.0,
                     ),
                     child: const Text(
                       "RP",

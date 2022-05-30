@@ -23,6 +23,7 @@ class _WelcomeState extends State<Welcome> {
   }
 
   Future getName() async {
+<<<<<<< HEAD
     String? name = await dbHelper.getName();
     print(name);
 
@@ -37,6 +38,14 @@ class _WelcomeState extends State<Welcome> {
         ),
       );
     // }
+=======
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => Register(),
+      ),
+    );
+    //}
+>>>>>>> 8509aac74689718bc7db472dd8cb11e3b4fd6188
   }
 
   @override
