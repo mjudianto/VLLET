@@ -11,18 +11,18 @@ class EditTransaction extends StatefulWidget {
 }
 
 class _EditTransactionState extends State<EditTransaction> {
-  String choise = '';
+  String choice = '';
   Future<void> showInformationDialog(BuildContext context) async {
     return await showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          content: Container(
+          content: SizedBox(
             height: 100.0,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+              children: const[
                 Text(
                   "WARNING!",
                   style: TextStyle(
@@ -167,10 +167,10 @@ class _EditTransactionState extends State<EditTransaction> {
                     ),
                   ),
                   selectedColor: Color.fromARGB(255, 141, 63, 184),
-                  selected: (choise == 'Income') ? true : false,
+                  selected: (choice == 'Income') ? true : false,
                   onSelected: (bool value) {
                     setState(() {
-                      choise = 'Income';
+                      choice = 'Income';
                     });
                   },
                 ),
@@ -186,10 +186,10 @@ class _EditTransactionState extends State<EditTransaction> {
                     ),
                   ),
                   selectedColor: Color.fromARGB(255, 141, 63, 184),
-                  selected: (choise == 'Expense') ? true : false,
+                  selected: (choice == 'Expense') ? true : false,
                   onSelected: (bool value) {
                     setState(() {
-                      choise = 'Expense';
+                      choice = 'Expense';
                     });
                   },
                 ),
@@ -205,10 +205,10 @@ class _EditTransactionState extends State<EditTransaction> {
                     ),
                   ),
                   selectedColor: Color.fromARGB(255, 141, 63, 184),
-                  selected: (choise == 'Transfer') ? true : false,
+                  selected: (choice == 'Transfer') ? true : false,
                   onSelected: (bool value) {
                     setState(() {
-                      choise = 'Transfer';
+                      choice = 'Transfer';
                     });
                   },
                 ),
