@@ -12,7 +12,7 @@ class DeleteAccount extends StatefulWidget {
 }
 
 class _DeleteAccountState extends State<DeleteAccount> {
-  Future<Void> showInformationDialog(BuildContext context) async {
+  showInformationDialog(BuildContext context) async {
     return await showDialog(
       context: context,
       builder: (context) {
@@ -22,7 +22,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+              children: const [
                 Text(
                   "WARNING!",
                   style: TextStyle(
