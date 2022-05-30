@@ -178,7 +178,7 @@ class _AddTransactionState extends State<AddTransaction> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   DropdownButton(
-                    hint: Text("From"),
+                    hint: Text("From                   "),
                     icon: const Icon(Icons.arrow_drop_down,
                         color: Color.fromARGB(255, 200, 200, 200)),
                     items: items.map((String items) {
@@ -194,7 +194,7 @@ class _AddTransactionState extends State<AddTransaction> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: DropdownButton(
-                      hint: Text("TO"),
+                      hint: Text("To                      "),
                       icon: const Icon(Icons.arrow_drop_down,
                           color: Color.fromARGB(255, 200, 200, 200)),
                       items: items.map((String items) {
