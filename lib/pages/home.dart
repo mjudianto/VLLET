@@ -3,6 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vllet/controllers/db_helper.dart';
 import 'package:vllet/pages/addtransaction.dart';
+import 'package:vllet/pages/edittransaction.dart';
 import 'package:vllet/pages/models/transaction.dart';
 import 'package:vllet/pages/setting.dart';
 
@@ -83,7 +84,7 @@ class _HomeState extends State<Home> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+              children: const [
                 Text(
                   "CONFIRMATION!",
                   style: TextStyle(
@@ -107,7 +108,11 @@ class _HomeState extends State<Home> {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pop();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EditTransaction()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                         primary: Color.fromARGB(255, 101, 246, 106),
