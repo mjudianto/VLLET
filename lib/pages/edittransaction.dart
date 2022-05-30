@@ -18,33 +18,34 @@ class _EditTransactionState extends State<EditTransaction> {
       builder: (context) {
         return AlertDialog(
           content: SizedBox(
-            height: 100.0,
+            height: 125.0,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: const [
                 Text(
-                  "WARNING!",
+                  "WARNING!\n",
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 24,
                   ),
                 ),
                 Text(
                   "This will delete this account.",
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 Text(
                   "This action is irreversible.",
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 Text(
                   "Do you want to continue?",
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
@@ -61,12 +62,13 @@ class _EditTransactionState extends State<EditTransaction> {
                       Navigator.of(context).pop();
                     },
                     style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 101, 246, 106),
+                        minimumSize: Size(111, 45),
+                        primary: Color.fromRGBO(37, 187, 51, 1),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(20),
                         )),
                     child: const Text(
-                      "YES",
+                      "Yes",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
@@ -79,12 +81,13 @@ class _EditTransactionState extends State<EditTransaction> {
                     Navigator.of(context).pop();
                   },
                   style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 211, 84, 84),
+                      minimumSize: Size(111, 45),
+                      primary: Color.fromRGBO(187, 37, 37, 1),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(20),
                       )),
                   child: const Text(
-                    "NO",
+                    "No",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
