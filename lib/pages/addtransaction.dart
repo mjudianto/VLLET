@@ -174,7 +174,6 @@ class _AddTransactionState extends State<AddTransaction> {
               const SizedBox(
                 height: 15.0,
               ),
-<<<<<<< HEAD
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -209,13 +208,6 @@ class _AddTransactionState extends State<AddTransaction> {
                   ),
                   (transfer)
                       ? Column(
-=======
-              (transfer)
-                  ? Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
->>>>>>> 29c91e3ba6bb6d7e1ed22bf962d340da99c0026a
                           children: [
                             DropdownButton(
                               hint: Text("From"),
