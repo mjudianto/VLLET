@@ -74,7 +74,7 @@ class _AddTransactionState extends State<AddTransaction> {
               const Text(
                 "Add \nTransaction",
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 36,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -86,7 +86,8 @@ class _AddTransactionState extends State<AddTransaction> {
                   hintText: "Transaction Name",
                 ),
                 style: const TextStyle(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20,
                 ),
                 onChanged: (val) {
                   tname = val;
@@ -103,7 +104,7 @@ class _AddTransactionState extends State<AddTransaction> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     padding: const EdgeInsets.all(
-                      5.0,
+                      7.0,
                     ),
                     child: const Icon(
                       Icons.money_rounded,
@@ -230,7 +231,7 @@ class _AddTransactionState extends State<AddTransaction> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     padding: const EdgeInsets.all(
-                      10.0,
+                      12.0,
                     ),
                     child: const Text(
                       "RP",
