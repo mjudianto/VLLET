@@ -11,7 +11,9 @@ class AddTransaction extends StatefulWidget {
 }
 
 class _AddTransactionState extends State<AddTransaction> {
-  var items = ['item1', 'item2'];
+  var items = ['Cash', 'Accounts', 'Cards'];
+  String accountgroup1 = "From";
+  String accountgroup2 = "To";
   DateTime selectedDate = DateTime.now();
   int? amount;
   String note = "";
@@ -171,14 +173,22 @@ class _AddTransactionState extends State<AddTransaction> {
                   ),
                 ],
               ),
+<<<<<<< HEAD
               const SizedBox(
                 height: 15.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
+=======
+                  (transfer)
+                      ? Column(
+                          children: [
+                            Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+>>>>>>> 9e83c4224b1ac954f0ec46fc665c744bcd7b60fb
                 children: [
                   DropdownButton(
-                    hint: Text("From                   "),
+                    hint: Text(accountgroup1),
                     icon: const Icon(Icons.arrow_drop_down,
                         color: Color.fromARGB(255, 200, 200, 200)),
                     items: items.map((String items) {
@@ -187,24 +197,11 @@ class _AddTransactionState extends State<AddTransaction> {
                         child: Text(items),
                       );
                     }).toList(),
-                    onChanged: (value) {},
-                  ),
-                  Icon(Icons.arrow_left_outlined, color: Colors.black),
-                  Icon(Icons.arrow_right_outlined, color: Colors.black),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: DropdownButton(
-                      hint: Text("To                      "),
-                      icon: const Icon(Icons.arrow_drop_down,
-                          color: Color.fromARGB(255, 200, 200, 200)),
-                      items: items.map((String items) {
-                        return DropdownMenuItem<String>(
-                          value: items,
-                          child: Text(items),
-                        );
-                      }).toList(),
-                      onChanged: (value) {},
+                    onChanged: (value) {
+                      accountgroup1 = value.toString();
+                    },
                     ),
+<<<<<<< HEAD
                   ),
                   (transfer)
                       ? Column(
@@ -251,8 +248,35 @@ class _AddTransactionState extends State<AddTransaction> {
                     )
                   : Text(""),
               const SizedBox(
+=======
+                    Icon(Icons.arrow_left_outlined, color: Colors.black),
+                    Icon(Icons.arrow_right_outlined, color: Colors.black),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: DropdownButton(
+                        hint: Text(accountgroup2),
+                        icon: const Icon(Icons.arrow_drop_down,
+                            color: Color.fromARGB(255, 200, 200, 200)),
+                        items: items.map((String items) {
+                          return DropdownMenuItem<String>(
+                            value: items,
+                            child: Text(items),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          accountgroup2 = value.toString();
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+>>>>>>> 9e83c4224b1ac954f0ec46fc665c744bcd7b60fb
                 height: 15.0,
-              ),
+                ),
+              ],
+              )
+              : Text(""),
               Row(
                 children: [
                   Container(
