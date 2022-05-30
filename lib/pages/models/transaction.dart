@@ -9,5 +9,11 @@ class TransactionModel {
     this.amount = this.amount + amount;
   }
 
-  TransactionModel(this.tname,this.type,this.amount, this.date ,this.note,);
+  TransactionModel(
+    this.tname,
+    this.type,
+    this.amount,
+    this.date,
+    this.note,
+  );
 }

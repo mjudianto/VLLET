@@ -166,7 +166,6 @@ class _AccountState extends State<Account> {
                                   itemCount: snapshot.data!.length + 1,
                                   itemBuilder: (context, index) {
                                     CashModel dataAtIndex = snapshot.data![0];
-                                    print(dataAtIndex.name);
                                     try {
                                       // dataAtIndex = snapshot.data![index];
                                       dataAtIndex = snapshot.data![index];
@@ -176,7 +175,6 @@ class _AccountState extends State<Account> {
                                       // hence makign it null here., as we still build on the length.
                                       return Container();
                                     }
-                                    print(index);
                                     if(dataAtIndex.name != ""){
                                       return Text(dataAtIndex.name);
                                     } else {

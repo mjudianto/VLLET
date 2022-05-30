@@ -1,5 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:vllet/models/transaction_modal.dart';
 
 class DbHelper {
   late Box box;
@@ -38,7 +39,7 @@ class DbHelper {
   addName(String name) async {
     preferences = await SharedPreferences.getInstance();
     preferences.setString('name', name);
-    print("sukses"+name);
+    print("sukses" + name);
   }
 
   getName() async {

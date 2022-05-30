@@ -11,6 +11,7 @@ class AddTransaction extends StatefulWidget {
 }
 
 class _AddTransactionState extends State<AddTransaction> {
+  var items = ['item1', 'item2'];
   DateTime selectedDate = DateTime.now();
   int? amount;
   String note = "";
@@ -173,8 +174,38 @@ class _AddTransactionState extends State<AddTransaction> {
               const SizedBox(
                 height: 15.0,
               ),
-              Column(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  DropdownButton(
+                    hint: Text("From"),
+                    icon: const Icon(Icons.arrow_drop_down,
+                        color: Color.fromARGB(255, 200, 200, 200)),
+                    items: items.map((String items) {
+                      return DropdownMenuItem<String>(
+                        value: items,
+                        child: Text(items),
+                      );
+                    }).toList(),
+                    onChanged: (value) {},
+                  ),
+                  Icon(Icons.arrow_left_outlined, color: Colors.black),
+                  Icon(Icons.arrow_right_outlined, color: Colors.black),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: DropdownButton(
+                      hint: Text("TO"),
+                      icon: const Icon(Icons.arrow_drop_down,
+                          color: Color.fromARGB(255, 200, 200, 200)),
+                      items: items.map((String items) {
+                        return DropdownMenuItem<String>(
+                          value: items,
+                          child: Text(items),
+                        );
+                      }).toList(),
+                      onChanged: (value) {},
+                    ),
+                  ),
                   (transfer)
                       ? Column(
                           children: [
@@ -190,6 +221,9 @@ class _AddTransactionState extends State<AddTransaction> {
                         )
                       : Text(""),
                 ],
+              ),
+              const SizedBox(
+                height: 15.0,
               ),
               Row(
                 children: [

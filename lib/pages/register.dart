@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vllet/controllers/db_helper.dart';
+import 'package:vllet/pages/edittransaction.dart';
 import './home.dart';
 
 class Register extends StatefulWidget {
@@ -121,7 +122,9 @@ class _RegisterState extends State<Register> {
                                     await dbHelper.addName(name);
                                     Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
-                                        builder: (context) => Home(name: name,),
+                                        builder: (context) => Home(
+                                          name: name,
+                                        ),
                                       ),
                                     );
                                   }

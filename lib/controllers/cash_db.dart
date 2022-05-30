@@ -13,8 +13,7 @@ class Cashdb {
     box = Hive.box('cash');
   }
 
-  void addData(
-      String name, int amount) async {
+  void addData(String name, int amount) async {
     var value = {
       'name': name,
       'amount': amount,
@@ -35,7 +34,7 @@ class Cashdb {
   addName(String name) async {
     preferences = await SharedPreferences.getInstance();
     preferences.setString('name', name);
-    print("sukses"+name);
+    print("sukses" + name);
   }
 
   getName() async {
