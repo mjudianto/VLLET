@@ -22,7 +22,7 @@ class _EditTransactionState extends State<EditTransaction> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const[
+              children: const [
                 Text(
                   "WARNING!",
                   style: TextStyle(
@@ -121,7 +121,7 @@ class _EditTransactionState extends State<EditTransaction> {
             const Text(
               "Edit \nTransaction",
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 36,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -339,14 +339,17 @@ class _EditTransactionState extends State<EditTransaction> {
                     },
                     style: ElevatedButton.styleFrom(
                         primary: Colors.black,
+                        minimumSize: Size(357, 63),
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         )),
                     child: const Text(
                       "SAVE TRANSACTION",
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
+                        letterSpacing: 3.0,
                       ),
                     ),
                   ),
@@ -357,14 +360,17 @@ class _EditTransactionState extends State<EditTransaction> {
                   },
                   style: ElevatedButton.styleFrom(
                       primary: Color.fromARGB(255, 191, 12, 12),
+                      minimumSize: Size(357, 63),
+                      padding: EdgeInsets.symmetric(horizontal: 16.0),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       )),
                   child: const Text(
                     "DELETE TRANSACTION",
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14,
+                      letterSpacing: 3.0,
                     ),
                   ),
                 ),
