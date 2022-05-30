@@ -26,17 +26,17 @@ class _WelcomeState extends State<Welcome> {
     String? name = await dbHelper.getName();
     print(name);
 
-    if (name != null) {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => Home(name: name),
-      ));
-    } else {
+    // if (name != null) {
+    //   Navigator.of(context).pushReplacement(MaterialPageRoute(
+    //     builder: (context) => Home(name: name),
+    //   ));
+    // } else {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => Register(),
         ),
       );
-    }
+    // }
   }
 
   @override

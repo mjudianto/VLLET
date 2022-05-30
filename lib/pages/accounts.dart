@@ -18,36 +18,53 @@ class _AccountState extends State<Account> {
   Cashdb cashdb = Cashdb();
   SharedPreferences? prefs;
   Map? data;
+  List cashdata = <CashModel>[];
 
   void initState() {
-    getPreference();
+    // getPreference();
     super.initState();
     box = Hive.box('cash');
+    getCashData();
   }
 
-  getPreference() async {
-    prefs = await SharedPreferences.getInstance();
-  }
+  // getPreference() async {
+  //   prefs = await SharedPreferences.getInstance();
+  // }
 
-
-  Future<List<CashModel>> fetch() async {
-    if (box.values.isEmpty) {
-      return Future.value([]);
-    } else {
-      // return Future.value(box.toMap());
-      List<CashModel> items = [];
+  Future getCashData() async {
+    // final box = Hive.openBox('cash');
+    if (!box.values.isEmpty) {
       box.toMap().values.forEach((element) {
         // print(element['name']);
-        items.add(
+        cashdata.add(
           CashModel(
             element['name'],
             element['amount'] as int,
           ),
         );
       });
-      return items;
     }
   }
+
+
+  // Future<List<CashModel>> fetch() async {
+  //   if (box.values.isEmpty) {
+  //     return Future.value([]);
+  //   } else {
+  //     // return Future.value(box.toMap());
+  //     List<CashModel> items = [];
+  //     box.toMap().values.forEach((element) {
+  //       // print(element['name']);
+  //       items.add(
+  //         CashModel(
+  //           element['name'],
+  //           element['amount'] as int,
+  //         ),
+  //       );
+  //     });
+  //     return items;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -155,40 +172,37 @@ class _AccountState extends State<Account> {
                           ),
                         ),
                       ),
+                      (!cashdata.isEmpty)?
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FutureBuilder<List<CashModel>>(
-                            future: fetch(),
-                            builder: (context, snapshot){
-                              if (snapshot.hasData) {
-                                ListView.builder(
-                                  itemCount: snapshot.data!.length + 1,
-                                  itemBuilder: (context, index) {
-                                    CashModel dataAtIndex = snapshot.data![0];
-                                    try {
-                                      // dataAtIndex = snapshot.data![index];
-                                      dataAtIndex = snapshot.data![index];
-                                      
-                                    } catch (e) {
-                                      // deleteAt deletes that key and value,
-                                      // hence makign it null here., as we still build on the length.
-                                      return Container();
-                                    }
-                                    if(dataAtIndex.name != ""){
-                                      return Text(dataAtIndex.name);
-                                    } else {
-                                      return Container();
-                                    }
-                                    
-                                  },
-                                );
-                              }
-                              return Container();
-                            }
-                          )
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                            child: Text(
+                              cashdata[0].name,
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.fromLTRB(60, 2, 60, 2),
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(5.0),
+                                )),
+                            child: Row(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
+                              children: [Text("Rp."), Text(cashdata[0].amount.toString())],
+                            ))
                         ],
-                      )
+                      ):
+                      Text(""),
                     ],
                   ),
                 ),
