@@ -11,7 +11,9 @@ class AddTransaction extends StatefulWidget {
 }
 
 class _AddTransactionState extends State<AddTransaction> {
-  var items = ['item1', 'item2'];
+  var items = ['Cash', 'Accounts', 'Cards'];
+  String accountgroup1 = "From";
+  String accountgroup2 = "To";
   DateTime selectedDate = DateTime.now();
   int? amount;
   String note = "";
@@ -171,59 +173,53 @@ class _AddTransactionState extends State<AddTransaction> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 15.0,
-              ),
-              (transfer)
-                  ? Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                  (transfer)
+                      ? Column(
                           children: [
-                            DropdownButton(
-                              hint: Text("From"),
-                              icon: const Icon(Icons.arrow_drop_down,
-                                  color: Color.fromARGB(255, 200, 200, 200)),
-                              items: items.map((String items) {
-                                return DropdownMenuItem<String>(
-                                  value: items,
-                                  child: Text(items),
-                                );
-                              }).toList(),
-                              onChanged: (value) {},
-                            ),
-                            Icon(Icons.arrow_left_outlined,
-                                color: Colors.black),
-                            Icon(Icons.arrow_right_outlined,
-                                color: Colors.black),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: DropdownButton(
-                                hint: Text("TO"),
-                                icon: const Icon(Icons.arrow_drop_down,
-                                    color: Color.fromARGB(255, 200, 200, 200)),
-                                items: items.map((String items) {
-                                  return DropdownMenuItem<String>(
-                                    value: items,
-                                    child: Text(items),
-                                  );
-                                }).toList(),
-                                onChanged: (value) {},
-                              ),
-                            ),
-                          ],
-                          // EDIT FROM SAMA TO DIDALEWM ROW INI
-                          // KALO BUTUH PANDUAN LIAT DARI DROP DOWN LIST ADD ACCOUNT
-                        ),
-                        const SizedBox(
-                          height: 15.0,
-                        ),
-                      ],
-                    )
-                  : Text(""),
-              const SizedBox(
+                            Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  DropdownButton(
+                    hint: Text(accountgroup1),
+                    icon: const Icon(Icons.arrow_drop_down,
+                        color: Color.fromARGB(255, 200, 200, 200)),
+                    items: items.map((String items) {
+                      return DropdownMenuItem<String>(
+                        value: items,
+                        child: Text(items),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      accountgroup1 = value.toString();
+                    },
+                    ),
+                    Icon(Icons.arrow_left_outlined, color: Colors.black),
+                    Icon(Icons.arrow_right_outlined, color: Colors.black),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: DropdownButton(
+                        hint: Text(accountgroup2),
+                        icon: const Icon(Icons.arrow_drop_down,
+                            color: Color.fromARGB(255, 200, 200, 200)),
+                        items: items.map((String items) {
+                          return DropdownMenuItem<String>(
+                            value: items,
+                            child: Text(items),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          accountgroup2 = value.toString();
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
                 height: 15.0,
-              ),
+                ),
+              ],
+              )
+              : Text(""),
               Row(
                 children: [
                   Container(
