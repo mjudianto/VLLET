@@ -76,81 +76,6 @@ class _HomeState extends State<Home> {
     }
   }
 
-  Future<void> showInformationDialog(BuildContext context) async {
-    return await showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          content: Container(
-            height: 70.0,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  "CONFIRMATION!",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  "Do you want to edit this transaction?",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 101, 246, 106),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        )),
-                    child: const Text(
-                      "YES",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 211, 84, 84),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      )),
-                  child: const Text(
-                    "NO",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   getTotalBalance(List<TransactionModel> entireData) {
     totalBalance = 0;
     totalIncome = 0;
@@ -180,7 +105,7 @@ class _HomeState extends State<Home> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: const [
                 Text(
-                  "EDIT TRANSACTION",
+                  "EDIT TRANSACTION!",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
@@ -287,7 +212,7 @@ class _HomeState extends State<Home> {
                     Container(
                       padding: const EdgeInsets.only(bottom: 10.0),
                       child: Text(
-                        "Welcome \n${widget.name}!",
+                        "Welcome \n ${widget.name}!",
                         style: const TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.w700,
@@ -420,7 +345,7 @@ class _HomeState extends State<Home> {
                           ),
                         )),
                     const Padding(
-                      padding: EdgeInsets.fromLTRB(5, 20, 0, 5),
+                      padding: EdgeInsets.symmetric(vertical: 5.0),
                       child: Text("Recent Transactions",
                           style: TextStyle(
                               fontSize: 20.0, fontWeight: FontWeight.bold)),
@@ -503,8 +428,8 @@ class _HomeState extends State<Home> {
         await showInformationDialog(context);
       },
       child: Container(
-        padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-        margin: const EdgeInsets.all(5.0),
+        padding: const EdgeInsets.all(18.0),
+        margin: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 255, 135, 135),
           borderRadius: BorderRadius.circular(
@@ -520,31 +445,10 @@ class _HomeState extends State<Home> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-<<<<<<< HEAD
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.arrow_circle_down_outlined,
-                          size: 28.0,
-                          color: Colors.red[700],
-                        ),
-                        const SizedBox(
-                          width: 4.0,
-                        ),
-                        const Text(
-                          "Expense",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20.0,
-                          ),
-                        ),
-                      ],
-=======
                     Icon(
                       Icons.arrow_circle_up_outlined,
                       size: 28.0,
                       color: Colors.red[700],
->>>>>>> 34355a45be9d518b5eba9557690fb643149d542e
                     ),
                     const SizedBox(
                       width: 4.0,
@@ -619,8 +523,8 @@ class _HomeState extends State<Home> {
         await showInformationDialog(context);
       },
       child: Container(
-        padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-        margin: const EdgeInsets.all(5.0),
+        padding: const EdgeInsets.all(18.0),
+        margin: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 184, 236, 126),
           borderRadius: BorderRadius.circular(
@@ -636,7 +540,7 @@ class _HomeState extends State<Home> {
                 Row(
                   children: [
                     Icon(
-                      Icons.arrow_circle_up_outlined,
+                      Icons.arrow_circle_down_outlined,
                       size: 28.0,
                       color: Colors.green[700],
                     ),
