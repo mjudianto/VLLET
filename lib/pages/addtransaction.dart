@@ -11,7 +11,9 @@ class AddTransaction extends StatefulWidget {
 }
 
 class _AddTransactionState extends State<AddTransaction> {
-  var items = ['item1', 'item2'];
+  var items = ['Cash', 'Accounts', 'Cards'];
+  String accountgroup1 = "From";
+  String accountgroup2 = "To";
   DateTime selectedDate = DateTime.now();
   int? amount;
   String note = "";
@@ -171,9 +173,6 @@ class _AddTransactionState extends State<AddTransaction> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 15.0,
-              ),
               (transfer)
                   ? Column(
                       children: [
@@ -181,7 +180,7 @@ class _AddTransactionState extends State<AddTransaction> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             DropdownButton(
-                              hint: Text("From"),
+                              hint: Text(accountgroup1),
                               icon: const Icon(Icons.arrow_drop_down,
                                   color: Color.fromARGB(255, 200, 200, 200)),
                               items: items.map((String items) {
@@ -190,7 +189,9 @@ class _AddTransactionState extends State<AddTransaction> {
                                   child: Text(items),
                                 );
                               }).toList(),
-                              onChanged: (value) {},
+                              onChanged: (value) {
+                                accountgroup1 = value.toString();
+                              },
                             ),
                             Icon(Icons.arrow_left_outlined,
                                 color: Colors.black),
@@ -199,7 +200,7 @@ class _AddTransactionState extends State<AddTransaction> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: DropdownButton(
-                                hint: Text("TO"),
+                                hint: Text(accountgroup2),
                                 icon: const Icon(Icons.arrow_drop_down,
                                     color: Color.fromARGB(255, 200, 200, 200)),
                                 items: items.map((String items) {
@@ -208,7 +209,9 @@ class _AddTransactionState extends State<AddTransaction> {
                                     child: Text(items),
                                   );
                                 }).toList(),
-                                onChanged: (value) {},
+                                onChanged: (value) {
+                                  accountgroup2 = value.toString();
+                                },
                               ),
                             ),
                           ],
@@ -219,9 +222,6 @@ class _AddTransactionState extends State<AddTransaction> {
                       ],
                     )
                   : Text(""),
-              const SizedBox(
-                height: 15.0,
-              ),
               Row(
                 children: [
                   Container(

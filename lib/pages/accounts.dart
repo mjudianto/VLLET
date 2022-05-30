@@ -29,7 +29,6 @@ class _AccountState extends State<Account> {
     prefs = await SharedPreferences.getInstance();
   }
 
-
   Future<List<CashModel>> fetch() async {
     if (box.values.isEmpty) {
       return Future.value([]);
@@ -87,7 +86,10 @@ class _AccountState extends State<Account> {
                     if (value == 'Add') {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => AddAccount(accountgroup: "Account Group",)),
+                        MaterialPageRoute(
+                            builder: (context) => AddAccount(
+                                  accountgroup: "Account Group",
+                                )),
                       );
                     } else {
                       Navigator.push(
@@ -159,34 +161,31 @@ class _AccountState extends State<Account> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           FutureBuilder<List<CashModel>>(
-                            future: fetch(),
-                            builder: (context, snapshot){
-                              if (snapshot.hasData) {
-                                ListView.builder(
-                                  itemCount: snapshot.data!.length + 1,
-                                  itemBuilder: (context, index) {
-                                    CashModel dataAtIndex = snapshot.data![0];
-                                    try {
-                                      // dataAtIndex = snapshot.data![index];
-                                      dataAtIndex = snapshot.data![index];
-                                      
-                                    } catch (e) {
-                                      // deleteAt deletes that key and value,
-                                      // hence makign it null here., as we still build on the length.
-                                      return Container();
-                                    }
-                                    if(dataAtIndex.name != ""){
-                                      return Text(dataAtIndex.name);
-                                    } else {
-                                      return Container();
-                                    }
-                                    
-                                  },
-                                );
-                              }
-                              return Container();
-                            }
-                          )
+                              future: fetch(),
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  ListView.builder(
+                                    itemCount: snapshot.data!.length + 1,
+                                    itemBuilder: (context, index) {
+                                      CashModel dataAtIndex = snapshot.data![0];
+                                      try {
+                                        // dataAtIndex = snapshot.data![index];
+                                        dataAtIndex = snapshot.data![index];
+                                      } catch (e) {
+                                        // deleteAt deletes that key and value,
+                                        // hence makign it null here., as we still build on the length.
+                                        return Container();
+                                      }
+                                      if (dataAtIndex.name != "") {
+                                        return Text(dataAtIndex.name);
+                                      } else {
+                                        return Container();
+                                      }
+                                    },
+                                  );
+                                }
+                                return Container();
+                              })
                         ],
                       )
                     ],
