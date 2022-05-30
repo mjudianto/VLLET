@@ -1,10 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:vllet/controllers/cash_db.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:vllet/pages/models/cash.dart';
 
 import './addaccount.dart';
 import './deleteaccount.dart';
 
-class Account extends StatelessWidget {
-  const Account({Key? key}) : super(key: key);
+class Account extends StatefulWidget {
+  Account({Key? key}) : super(key: key);
+  @override
+  State<Account> createState() => _AccountState();
+}
+
+class _AccountState extends State<Account> {
+  late Box box;
+  Cashdb cashdb = Cashdb();
+  SharedPreferences? prefs;
+  Map? data;
+
+  void initState() {
+    getPreference();
+    super.initState();
+    box = Hive.box('cash');
+  }
+
+  getPreference() async {
+    prefs = await SharedPreferences.getInstance();
+  }
+
+
+  Future<List<CashModel>> fetch() async {
+    if (box.values.isEmpty) {
+      return Future.value([]);
+    } else {
+      // return Future.value(box.toMap());
+      List<CashModel> items = [];
+      box.toMap().values.forEach((element) {
+        print(element['name']);
+        items.add(
+          CashModel(
+            element['name'],
+            element['amount'] as int,
+          ),
+        );
+      });
+      return items;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -115,33 +158,37 @@ class Account extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 5),
-                            child: Text(
-                              "Tunai",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                          Container(
-                              padding: EdgeInsets.fromLTRB(60, 2, 60, 2),
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.black,
-                                  ),
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(5.0),
-                                  )),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Text("Rp."),
-                                  Text("0"),
-                                ],
-                              ))
+                          FutureBuilder<List<CashModel>>(
+                            future: fetch(),
+                            builder: (context, snapshot){
+                              if (snapshot.hasData) {
+                                ListView.builder(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  itemCount: snapshot.data!.length + 1,
+                                  itemBuilder: (context, index) {
+                                    CashModel dataAtIndex;
+                                    try {
+                                      // dataAtIndex = snapshot.data![index];
+                                      dataAtIndex = snapshot.data![index];
+                                    } catch (e) {
+                                      // deleteAt deletes that key and value,
+                                      // hence makign it null here., as we still build on the length.
+                                      return Container();
+                                    }
+                                    print(dataAtIndex);
+                                    if(dataAtIndex.name != ""){
+                                      return Text(dataAtIndex.amount.toString());
+                                    } else {
+                                      return Container();
+                                    }
+                                    
+                                  },
+                                );
+                              }
+                              return Container();
+                            }
+                          )
                         ],
                       )
                     ],
