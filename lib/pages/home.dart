@@ -1,8 +1,11 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vllet/controllers/db_helper.dart';
 import 'package:vllet/pages/addtransaction.dart';
+import 'package:vllet/pages/edittransaction.dart';
 import 'package:vllet/pages/models/transaction.dart';
 import 'package:vllet/pages/setting.dart';
 
@@ -88,6 +91,85 @@ class _HomeState extends State<Home> {
         }
       }
     }
+  }
+
+  showInformationDialog(BuildContext context) async {
+    return await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          content: SizedBox(
+            height: 100.0,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: const [
+                Text(
+                  "EDIT TRANSACTION",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "Do you want to continue?",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EditTransaction()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                        primary: Color.fromARGB(255, 101, 246, 106),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        )),
+                    child: const Text(
+                      "YES",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 211, 84, 84),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      )),
+                  child: const Text(
+                    "NO",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -275,11 +357,8 @@ class _HomeState extends State<Home> {
                       itemBuilder: (context, index) {
                         TransactionModel dataAtIndex;
                         try {
-                          // dataAtIndex = snapshot.data![index];
                           dataAtIndex = snapshot.data![index];
                         } catch (e) {
-                          // deleteAt deletes that key and value,
-                          // hence makign it null here., as we still build on the length.
                           return Container();
                         }
 
@@ -287,6 +366,7 @@ class _HomeState extends State<Home> {
                           if (dataAtIndex.type == "Income") {
                             return incomeTile(
                               dataAtIndex.amount,
+                              dataAtIndex.tname,
                               dataAtIndex.note,
                               dataAtIndex.date,
                               index,
@@ -294,6 +374,7 @@ class _HomeState extends State<Home> {
                           } else {
                             return expenseTile(
                               dataAtIndex.amount,
+                              dataAtIndex.tname,
                               dataAtIndex.note,
                               dataAtIndex.date,
                               index,
@@ -311,7 +392,8 @@ class _HomeState extends State<Home> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => AddTransaction(name: (widget.name))),
+                                builder: (context) =>
+                                    AddTransaction(name: (widget.name))),
                           );
                         },
                         style: ElevatedButton.styleFrom(
@@ -338,10 +420,13 @@ class _HomeState extends State<Home> {
             }));
   }
 
-  Widget expenseTile(int value, String note, DateTime date, int index) {
+  Widget expenseTile(
+      int value, String tname, String note, DateTime date, int index) {
     return InkWell(
       splashColor: Colors.red,
-      onTap: () {},
+      onTap: () async {
+        await showInformationDialog(context);
+      },
       child: Container(
         padding: const EdgeInsets.all(18.0),
         margin: const EdgeInsets.all(8.0),
@@ -351,69 +436,76 @@ class _HomeState extends State<Home> {
             8.0,
           ),
         ),
-        child: Column(
+        child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Column(
               children: [
-                Column(
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.arrow_circle_up_outlined,
-                          size: 28.0,
-                          color: Colors.red[700],
-                        ),
-                        const SizedBox(
-                          width: 4.0,
-                        ),
-                        const Text(
-                          "Expense",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20.0,
-                          ),
-                        ),
-                      ],
+                    Icon(
+                      Icons.arrow_circle_up_outlined,
+                      size: 28.0,
+                      color: Colors.red[700],
                     ),
+                    const SizedBox(
+                      width: 4.0,
+                    ),
+                    const Text(
+                      "Expense",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0,
+                      ),
+                    ),
+                  ],
+                ),
 
-                    //
-                    Padding(
-                      padding: const EdgeInsets.all(6.0),
-                      child: Text(
+                //
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Row(
+                    children: [
+                      Text(
                         "${date.day} ${months[date.month - 1]} ",
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      "- $value",
-                      style: const TextStyle(
-                        fontSize: 24.0,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    //
-                    Padding(
-                      padding: const EdgeInsets.all(6.0),
-                      child: Text(
-                        note,
+                      Text(
+                        tname,
                         style: const TextStyle(
+                          fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),
                       ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  "- $value",
+                  style: const TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                //
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Text(
+                    note,
+                    style: const TextStyle(
+                      color: Colors.black,
                     ),
-                  ],
+                  ),
                 ),
               ],
             ),
@@ -423,10 +515,13 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget incomeTile(int value, String note, DateTime date, int index) {
+  Widget incomeTile(
+      int value, String tname, String note, DateTime date, int index) {
     return InkWell(
       splashColor: const Color.fromARGB(255, 138, 231, 141),
-      onTap: () {},
+      onTap: () async {
+        await showInformationDialog(context);
+      },
       child: Container(
         padding: const EdgeInsets.all(18.0),
         margin: const EdgeInsets.all(8.0),
@@ -464,12 +559,23 @@ class _HomeState extends State<Home> {
                 //
                 Padding(
                   padding: const EdgeInsets.all(6.0),
-                  child: Text(
-                    "${date.day} ${months[date.month - 1]} ",
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
+                  child: Row(
+                    children: [
+                      Text(
+                        "${date.day} ${months[date.month - 1]} ",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Text(
+                        tname,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 //
