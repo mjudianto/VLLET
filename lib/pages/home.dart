@@ -105,7 +105,7 @@ class _HomeState extends State<Home> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: const [
                 Text(
-                  "EDIT TRANSACTION!",
+                  "EDIT TRANSACTION",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),

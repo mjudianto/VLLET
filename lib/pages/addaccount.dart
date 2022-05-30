@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vllet/pages/accounts.dart';
+import 'package:vllet/controllers/cash_db.dart';
 
 class AddAccount extends StatefulWidget {
   AddAccount({Key? key, required this.accountgroup}) : super(key: key);
@@ -13,7 +14,9 @@ class AddAccount extends StatefulWidget {
 }
 
 class _AddAccount extends State<AddAccount> {
-  var items = ['item1', 'item2'];
+  var items = ['Cash', 'Accounts', 'Cards'];
+  String name = "";
+  int amount = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -95,6 +98,9 @@ class _AddAccount extends State<AddAccount> {
                         fontWeight: FontWeight.w700,
                         color: Colors.black,
                       ),
+                      onChanged: (value) {
+                        name = value;
+                      },
                     ),
                   )
                 ],
@@ -136,6 +142,9 @@ class _AddAccount extends State<AddAccount> {
                         FilteringTextInputFormatter.digitsOnly,
                       ],
                       keyboardType: TextInputType.number,
+                      onChanged: (value) {
+                        amount = int.parse(value);
+                      },
                     ),
                   ),
                 ],
@@ -149,10 +158,21 @@ class _AddAccount extends State<AddAccount> {
                   padding: const EdgeInsets.all(5.0),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Account()),
-                      );
+                      if(widget.accountgroup == 'Cash'){
+                        Cashdb cashdb = Cashdb();
+                        cashdb.addData(name, amount);
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => Account(),
+                          ),
+                        );
+                      } else {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => AddAccount(accountgroup: widget.accountgroup),
+                          ),
+                        );
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                         primary: Colors.black,
