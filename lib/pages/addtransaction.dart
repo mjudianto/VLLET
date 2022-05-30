@@ -175,21 +175,20 @@ class _AddTransactionState extends State<AddTransaction> {
               ),
               Column(
                 children: [
-                  (transfer)?
-                  Column(
-                    children: [
-                      Row( // EDIT FROM SAMA TO DIDALEWM ROW INI
-                      // KALO BUTUH PANDUAN LIAT DARI DROP DOWN LIST ADD ACCOUNT
-                        children: [
-                          Text("test"),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 15.0,
-                      ),
-                    ],
-                  )
-                  : Text(""),
+                  (transfer)
+                      ? Column(
+                          children: [
+                            Row(
+                                // EDIT FROM SAMA TO DIDALEWM ROW INI
+                                // KALO BUTUH PANDUAN LIAT DARI DROP DOWN LIST ADD ACCOUNT
+
+                                ),
+                            const SizedBox(
+                              height: 15.0,
+                            ),
+                          ],
+                        )
+                      : Text(""),
                 ],
               ),
               Row(
@@ -370,7 +369,7 @@ class _AddTransactionState extends State<AddTransaction> {
                           SnackBar(
                             backgroundColor: Colors.red[700],
                             content: const Text(
-                              "Please enter a valid Amount !",
+                              "Please enter a valid amount!",
                               style: TextStyle(
                                 fontSize: 16.0,
                                 color: Colors.white,
@@ -382,14 +381,17 @@ class _AddTransactionState extends State<AddTransaction> {
                     },
                     style: ElevatedButton.styleFrom(
                         primary: Colors.black,
+                        minimumSize: Size(357, 63),
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         )),
                     child: const Text(
                       "CREATE TRANSACTION",
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
+                        letterSpacing: 3.0,
                       ),
                     ),
                   ),
