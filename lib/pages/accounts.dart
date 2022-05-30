@@ -37,7 +37,7 @@ class _AccountState extends State<Account> {
       // return Future.value(box.toMap());
       List<CashModel> items = [];
       box.toMap().values.forEach((element) {
-        print(element['name']);
+        // print(element['name']);
         items.add(
           CashModel(
             element['name'],
@@ -163,22 +163,22 @@ class _AccountState extends State<Account> {
                             builder: (context, snapshot){
                               if (snapshot.hasData) {
                                 ListView.builder(
-                                  shrinkWrap: true,
-                                  physics: const NeverScrollableScrollPhysics(),
                                   itemCount: snapshot.data!.length + 1,
                                   itemBuilder: (context, index) {
-                                    CashModel dataAtIndex;
+                                    CashModel dataAtIndex = snapshot.data![0];
+                                    print(dataAtIndex.name);
                                     try {
                                       // dataAtIndex = snapshot.data![index];
                                       dataAtIndex = snapshot.data![index];
+                                      
                                     } catch (e) {
                                       // deleteAt deletes that key and value,
                                       // hence makign it null here., as we still build on the length.
                                       return Container();
                                     }
-                                    print(dataAtIndex);
+                                    print(index);
                                     if(dataAtIndex.name != ""){
-                                      return Text(dataAtIndex.amount.toString());
+                                      return Text(dataAtIndex.name);
                                     } else {
                                       return Container();
                                     }

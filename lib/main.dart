@@ -6,7 +6,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 void main() async {
   await Hive.initFlutter();
   await Hive.openBox('money');
-  await Hive.openBox<Cashdb>('cash');
+  await Hive.openBox('cash');
   runApp(const MyApp());
 }
 
