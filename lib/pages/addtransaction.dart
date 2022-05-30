@@ -174,54 +174,53 @@ class _AddTransactionState extends State<AddTransaction> {
               const SizedBox(
                 height: 15.0,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  DropdownButton(
-                    hint: Text("From"),
-                    icon: const Icon(Icons.arrow_drop_down,
-                        color: Color.fromARGB(255, 200, 200, 200)),
-                    items: items.map((String items) {
-                      return DropdownMenuItem<String>(
-                        value: items,
-                        child: Text(items),
-                      );
-                    }).toList(),
-                    onChanged: (value) {},
-                  ),
-                  Icon(Icons.arrow_left_outlined, color: Colors.black),
-                  Icon(Icons.arrow_right_outlined, color: Colors.black),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: DropdownButton(
-                      hint: Text("TO"),
-                      icon: const Icon(Icons.arrow_drop_down,
-                          color: Color.fromARGB(255, 200, 200, 200)),
-                      items: items.map((String items) {
-                        return DropdownMenuItem<String>(
-                          value: items,
-                          child: Text(items),
-                        );
-                      }).toList(),
-                      onChanged: (value) {},
-                    ),
-                  ),
-                  (transfer)
-                      ? Column(
+              (transfer)
+                  ? Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Row(
-                                // EDIT FROM SAMA TO DIDALEWM ROW INI
-                                // KALO BUTUH PANDUAN LIAT DARI DROP DOWN LIST ADD ACCOUNT
-
-                                ),
-                            const SizedBox(
-                              height: 15.0,
+                            DropdownButton(
+                              hint: Text("From"),
+                              icon: const Icon(Icons.arrow_drop_down,
+                                  color: Color.fromARGB(255, 200, 200, 200)),
+                              items: items.map((String items) {
+                                return DropdownMenuItem<String>(
+                                  value: items,
+                                  child: Text(items),
+                                );
+                              }).toList(),
+                              onChanged: (value) {},
+                            ),
+                            Icon(Icons.arrow_left_outlined,
+                                color: Colors.black),
+                            Icon(Icons.arrow_right_outlined,
+                                color: Colors.black),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: DropdownButton(
+                                hint: Text("TO"),
+                                icon: const Icon(Icons.arrow_drop_down,
+                                    color: Color.fromARGB(255, 200, 200, 200)),
+                                items: items.map((String items) {
+                                  return DropdownMenuItem<String>(
+                                    value: items,
+                                    child: Text(items),
+                                  );
+                                }).toList(),
+                                onChanged: (value) {},
+                              ),
                             ),
                           ],
-                        )
-                      : Text(""),
-                ],
-              ),
+                          // EDIT FROM SAMA TO DIDALEWM ROW INI
+                          // KALO BUTUH PANDUAN LIAT DARI DROP DOWN LIST ADD ACCOUNT
+                        ),
+                        const SizedBox(
+                          height: 15.0,
+                        ),
+                      ],
+                    )
+                  : Text(""),
               const SizedBox(
                 height: 15.0,
               ),
